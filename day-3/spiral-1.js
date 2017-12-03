@@ -18,7 +18,7 @@ const quarterOf = halfOf - (squared-1)
 const threeQuarterOf = halfOf + (squared-1)
 const endOf = squared ** 2
 
-var coord = { x: 0, y: 0 }
+var coord = { x: 0, y: 0, dist: 0 }
 
 if (blockNum <= quarterOf) {
     coord.x = level
@@ -37,6 +37,6 @@ else {
     coord.y = -level
 }
 
-coord.distance = Math.abs(coord.x) + Math.abs(coord.y)
+coord.dist = Math.abs(coord.x) + Math.abs(coord.y)
 
-console.log(`Point: [${coord.x},${coord.y}] distance: ${coord.distance}`)
+console.log(`Point: [${coord.x},${coord.y}] distance: ${coord.dist}`)
