@@ -24,10 +24,10 @@
 {
     evenDiv = ""
     for (i=1; i<=NF; ++i) {
-        for (j=1; j<=NF; ++j) {
-            if ($i > $j && $i % $j == 0)
+        for (j=i+1; j<=NF; ++j) {
+            if ($i % $j == 0)
                 evenDiv = $i / $j
-            else if ($i != $j && $j % $i == 0)
+            else if ($j % $i == 0)
                 evenDiv = $j / $i
         }
     }
