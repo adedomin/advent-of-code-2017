@@ -1,9 +1,9 @@
 #!/usr/bin/gawk -Wexec
 # usage: ./spiral-1.awk "$(< input.txt)"
 
-function ceil(num) { return -int(-num) }
+function ceil(num) { return (num == int(num)) ? num : int(num) + 1 }
 
-function abs(num) { return compl(num) + 1 }
+function abs(num) { return sqrt(num * num) }
 
 BEGIN {
     input = ARGV[1]
@@ -13,9 +13,10 @@ BEGIN {
     }
 
     square = or(ceil(sqrt(input)), 1)
-    prevLevelMax = (square - 2) ** 2
+    prevLevelMax = (square - 2) ^ 2
     depth = int(square / 2)
 
-    steps = depth - (input - prevLevelMax) % depth
+
+    steps = abs(depth - (input - prevLevelMax)) % (2 * depth)
     print depth + steps
 }
