@@ -31,6 +31,12 @@ END {
         currInd = getMaxInd(bank, bankCount)
         blocks = bank[currInd]
         bank[currInd] = 0
+        rounds = int(blocks / bankCount)
+
+        for (ind in bank)
+            bank[ind] += rounds
+
+        blocks -= rounds * bankCount
         currInd = currInd % bankCount + 1
 
         while (blocks > 0) {
